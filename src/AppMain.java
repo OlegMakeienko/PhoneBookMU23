@@ -1,3 +1,5 @@
+package src;
+
 public class AppMain {
     public static void main(String[] args) {
         Contact userProfile = Contact.builder()
