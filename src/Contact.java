@@ -60,6 +60,7 @@ public class Contact {
         this.userAddress = userAddress;
     }
 
+
     @Override
     public String toString() {
         return "UserProfile: " +
