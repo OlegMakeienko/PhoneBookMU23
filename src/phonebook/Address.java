@@ -1,4 +1,4 @@
-package src;
+package src.phonebook;
 
 public class Address {
     private String street;

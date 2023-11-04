@@ -1,4 +1,4 @@
-package src;
+package src.phonebook;
 
 import java.util.List;
 
