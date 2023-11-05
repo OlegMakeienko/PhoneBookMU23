@@ -39,17 +39,46 @@ public class PhoneBook implements SearchingInPhonebook {
     }
 
     @Override
-    public List<Contact> getContactWithFirstName(String firstName) {
-        return SearchingInPhonebook.super.getContactWithFirstName(firstName);
+    public Contact getContactWithLastName(String lastName) {
+        Contact contact = new Contact();
+        contacts = getAllContacts();
+        for (int i = 0; i < contacts.size(); i++) {
+            if (contacts.get(i).getLastName().equals(lastName)) {
+                contact =  contacts.get(i);
+            }
+        }
+        return contact;
     }
 
     @Override
-    public void showContactWithFirstName(String firstName) {
+    public void showContactWithLastName(String lastName) {
+        contacts = getAllContacts();
+        for (int i = 0; i < contacts.size(); i++) {
+            if (contacts.get(i).getLastName().equals(lastName)) {
+                System.out.println(contacts.get(i));
+            }
+        }
+    }
+
+    @Override
+    public List<Contact> getContactsWithFirstName(String firstName) {
         List<Contact> foundContacts = new ArrayList<>();
-        List<Contact> contacts = getAllContacts();
-        for(int i = 0; i < contacts.size(); i++) {
-            if(contacts.get(i).getFirstName().equals(firstName)) {
-                foundContacts.add(contacts.get(i));
+        contacts = getAllContacts();
+        for (Contact contact : contacts) {
+            if (contact.getFirstName().equals(firstName)) {
+                foundContacts.add(contact);
+            }
+        }
+        return foundContacts;
+    }
+
+    @Override
+    public void showContactsWithFirstName(String firstName) {
+        List<Contact> foundContacts = new ArrayList<>();
+        contacts = getAllContacts();
+        for (Contact value : contacts) {
+            if (value.getFirstName().equals(firstName)) {
+                foundContacts.add(value);
             }
         }
         for (Contact contact : foundContacts) {

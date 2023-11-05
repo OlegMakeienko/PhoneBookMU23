@@ -17,6 +17,8 @@ public class Contact {
         this.phoneNumbers = phoneNumbers;
     }
 
+    protected Contact() { }
+
     public static ContactBuilder builder() {
         return new ContactBuilder();
     }

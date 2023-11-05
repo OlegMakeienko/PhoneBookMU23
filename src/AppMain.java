@@ -2,8 +2,6 @@ package src;
 
 import src.phonebook.Contact;
 import src.phonebook.PhoneBook;
-import src.user.Admin;
-import src.user.User;
 
 public class AppMain {
     public static void main(String[] args) {
@@ -34,10 +32,21 @@ public class AppMain {
                 .addPhoneNumber("+38-050-123-4321")
                 .build();
 
+        Contact userProfile4 = Contact.builder()
+                .firstName("Ulf")
+                .lastName("Makeienko")
+                .age(63)
+                .userAddress("Stockholnsvägen 666, Santa-Fe, 76645")
+                .addPhoneNumber("+66-666-123-6666")
+                .build();
+
         phoneBook.addContact(userProfile1);
         phoneBook.addContact(userProfile2);
         phoneBook.addContact(userProfile3);
+        phoneBook.addContact(userProfile4);
 
-        phoneBook.showContactWithFirstName("Marie");
+
+        //phoneBook.showContactsWithFirstName("Marie");
+        System.out.println(phoneBook.getContactWithLastName("Makeienko"));
     }
 }
