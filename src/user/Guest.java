@@ -1,7 +1,5 @@
 package src.user;
 
-import src.workInterfaces.SearchingInPhonebook;
-
 public class Guest extends User{
 
     public Guest() {

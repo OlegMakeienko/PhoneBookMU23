@@ -1,15 +1,12 @@
-package src.workInterfaces;
+package src.workinterfaces;
 
 import src.phonebook.Contact;
-import src.phonebook.ContactBuilder;
 import src.phonebook.PhoneBook;
 
 import java.util.Collections;
 import java.util.List;
 
 public interface SearchingInPhonebook {
-
-    PhoneBook phoneBook = new PhoneBook();
 
     default List<Contact> getContactsWithAnySuitableInfo(String something) {
         return Collections.emptyList();
@@ -40,25 +37,4 @@ public interface SearchingInPhonebook {
     default void showContactsWithFirstName(String firstName) {
         System.out.println("Sökning på förnamn - ger alla profiler med det sökta förnamnet.");
     }
-
-
-
-    // default void updateContact(Contact profile) {
-          /* if (isAdmin || profiles.contains(profile)) {
-            // Implement profile update logic here
-        } else {
-            System.out.println("Permission denied. You need to be an admin or the profile owner to update.");
-        }*/
-   // }
-
-    /*
-    public void deleteContact(UserProfile profile) {
-        if (isAdmin || profiles.contains(profile)) {
-            profiles.remove(profile);
-        } else {
-            System.out.println("Permission denied. You need to be an admin or the profile owner to delete.");
-        }
-    }
-
-     */
 }

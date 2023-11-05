@@ -1,10 +1,5 @@
 package src.user;
 
-import src.phonebook.Contact;
-import src.workInterfaces.SearchingInPhonebook;
-
-import java.util.List;
-
 public class Admin extends User{
     public Admin() {
         super(TypAvUsers.ADMIN);

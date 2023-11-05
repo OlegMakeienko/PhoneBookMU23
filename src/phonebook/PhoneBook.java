@@ -1,27 +1,20 @@
 package src.phonebook;
 
-import src.workInterfaces.SearchingInPhonebook;
+import src.workinterfaces.ModifyingPhonebook;
+import src.workinterfaces.SearchingInPhonebook;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PhoneBook implements SearchingInPhonebook {
+public class PhoneBook implements SearchingInPhonebook, ModifyingPhonebook {
     private List<Contact> contacts;
+
+    private List<Contact> getAllContacts() {
+        return contacts;
+    }
 
     public PhoneBook() {
         contacts = new ArrayList<>();
-    }
-
-    public void addContact(Contact contact) {
-        contacts.add(contact);
-    }
-
-    public void deleteContact(Contact contact) {
-        contacts.remove(contact);
-    }
-
-    public List<Contact> getAllContacts() {
-        return contacts;
     }
 
     public void showAllContacts() {
@@ -36,6 +29,16 @@ public class PhoneBook implements SearchingInPhonebook {
                     contact.getUserAddress().getPostCode());
             System.out.println();
         }
+    }
+
+    @Override
+    public void deleteContact(Contact contact) {
+        contacts.remove(contact);
+    }
+
+    @Override
+    public void addContact(Contact contact) {
+        contacts.add(contact);
     }
 
     @Override
@@ -59,7 +62,6 @@ public class PhoneBook implements SearchingInPhonebook {
     @Override
     public void showContactsWithAnySuitableInfo(String something) {
         List<Contact> foundContacts = new ArrayList<>();
-        contacts = getAllContacts();
         String searchLower = something.toLowerCase();
 
         for (Contact value : contacts) {

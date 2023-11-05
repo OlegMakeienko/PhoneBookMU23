@@ -50,6 +50,8 @@ public class AppMain {
         //System.out.println(phoneBook.getContactWithLastName("Makeienko"));
         //phoneBook.showContactsWithAddress("Gatavägen");
         //System.out.println(phoneBook.getContactsWithAddress("Risselåsvägen"));
-        phoneBook.showContactsWithAnySuitableInfo("Ri");
+        //phoneBook.showContactsWithAnySuitableInfo("Ri");
+        //phoneBook.deleteContact(userProfile2);
+        phoneBook.showAllContacts();
     }
 }
