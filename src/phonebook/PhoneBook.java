@@ -39,6 +39,51 @@ public class PhoneBook implements SearchingInPhonebook {
     }
 
     @Override
+    public List<Contact> getContactsWithAnySuitableInfo(String something) {
+        List<Contact> foundContacts = new ArrayList<>();
+        contacts = getAllContacts();
+        String searchLower = something.toLowerCase();
+
+        for (Contact value : contacts) {
+            if (value.getFirstName().toLowerCase().contains(searchLower) ||
+                    value.getLastName().toLowerCase().contains(searchLower) ||
+                    value.getUserAddress().getStreet().toLowerCase().contains(searchLower) ||
+                    value.getUserAddress().getCity().toLowerCase().contains(searchLower) ||
+                    value.getUserAddress().getPostCode().toLowerCase().contains(searchLower)) {
+                foundContacts.add(value);
+            }
+        }
+        return foundContacts;
+    }
+
+    @Override
+    public void showContactsWithAnySuitableInfo(String something) {
+        List<Contact> foundContacts = new ArrayList<>();
+        contacts = getAllContacts();
+        String searchLower = something.toLowerCase();
+
+        for (Contact value : contacts) {
+            if (value.getFirstName().toLowerCase().contains(searchLower) ||
+                value.getLastName().toLowerCase().contains(searchLower) ||
+                value.getUserAddress().getStreet().toLowerCase().contains(searchLower) ||
+                value.getUserAddress().getCity().toLowerCase().contains(searchLower) ||
+                value.getUserAddress().getPostCode().toLowerCase().contains(searchLower)) {
+                foundContacts.add(value);
+            }
+        }
+        for (Contact contact : foundContacts) {
+            System.out.println("First Name: " + contact.getFirstName());
+            System.out.println("Last Name: " + contact.getLastName());
+            System.out.println("Age: " + contact.getAge());
+            System.out.println("Phone number: " + contact.getPhoneNumbers());
+            System.out.println("Address: " + contact.getUserAddress().getStreet() + ", " +
+                    contact.getUserAddress().getCity() + ", " +
+                    contact.getUserAddress().getPostCode());
+            System.out.println();
+        }
+    }
+
+    @Override
     public List<Contact> getContactsWithAddress(String street) {
         List<Contact> foundContacts = new ArrayList<>();
         contacts = getAllContacts();

@@ -18,7 +18,7 @@ public class AppMain {
 
         Contact userProfile2 = Contact.builder()
                 .firstName("Marie")
-                .lastName("Ohlsson")
+                .lastName("Risselsson")
                 .age(27)
                 .userAddress("Gatavägen 813, California, 12345")
                 .addPhoneNumber("+00-000-123-4567")
@@ -36,7 +36,7 @@ public class AppMain {
                 .firstName("Ulf")
                 .lastName("Makeienko")
                 .age(63)
-                .userAddress("Risselåsvägen 666, Santa-Fe, 76645")
+                .userAddress("Åsvägen 666, Risse-Fe, 76645")
                 .addPhoneNumber("+66-666-123-6666")
                 .build();
 
@@ -49,6 +49,7 @@ public class AppMain {
         //phoneBook.showContactsWithFirstName("Marie");
         //System.out.println(phoneBook.getContactWithLastName("Makeienko"));
         //phoneBook.showContactsWithAddress("Gatavägen");
-        System.out.println(phoneBook.getContactsWithAddress("Risselåsvägen"));
+        //System.out.println(phoneBook.getContactsWithAddress("Risselåsvägen"));
+        phoneBook.showContactsWithAnySuitableInfo("Ri");
     }
 }

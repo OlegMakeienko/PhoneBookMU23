@@ -11,6 +11,14 @@ public interface SearchingInPhonebook {
 
     PhoneBook phoneBook = new PhoneBook();
 
+    default List<Contact> getContactsWithAnySuitableInfo(String something) {
+        return Collections.emptyList();
+    }
+
+    default void showContactsWithAnySuitableInfo(String something) {
+        System.out.println("Frisökning - ger alla profiler med någon relaterbar kontaktinformation");
+    }
+
     default List<Contact> getContactsWithAddress(String street) {
         return Collections.emptyList();
     }
