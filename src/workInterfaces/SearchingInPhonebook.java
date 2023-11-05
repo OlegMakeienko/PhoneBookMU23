@@ -11,6 +11,13 @@ public interface SearchingInPhonebook {
 
     PhoneBook phoneBook = new PhoneBook();
 
+    default List<Contact> getContactsWithAddress(String street) {
+        return Collections.emptyList();
+    }
+
+    default void showContactsWithAddress(String street) {
+        System.out.println("Sökning på adress - ger alla profiler på samma gatunamn.");
+    }
     default Contact getContactWithLastName(String lastName) {
         return null;
     }

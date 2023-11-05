@@ -39,6 +39,43 @@ public class PhoneBook implements SearchingInPhonebook {
     }
 
     @Override
+    public List<Contact> getContactsWithAddress(String street) {
+        List<Contact> foundContacts = new ArrayList<>();
+        contacts = getAllContacts();
+        for (Contact value : contacts) {
+            String foundStreet = value.getUserAddress().getStreet();
+            String[] arr = foundStreet.split(" ", 2);
+            if (arr[0].equals(street)) {
+                foundContacts.add(value);
+            }
+        }
+        return foundContacts;
+    }
+
+    @Override
+    public void showContactsWithAddress(String street) {
+        List<Contact> foundContacts = new ArrayList<>();
+        contacts = getAllContacts();
+        for (Contact value : contacts) {
+            String foundStreet = value.getUserAddress().getStreet();
+            String[] arr = foundStreet.split(" ", 2);
+            if (arr[0].equals(street)) {
+                foundContacts.add(value);
+            }
+        }
+        for (Contact contact : foundContacts) {
+            System.out.println("First Name: " + contact.getFirstName());
+            System.out.println("Last Name: " + contact.getLastName());
+            System.out.println("Age: " + contact.getAge());
+            System.out.println("Phone number: " + contact.getPhoneNumbers());
+            System.out.println("Address: " + contact.getUserAddress().getStreet() + ", " +
+                    contact.getUserAddress().getCity() + ", " +
+                    contact.getUserAddress().getPostCode());
+            System.out.println();
+        }
+    }
+
+    @Override
     public Contact getContactWithLastName(String lastName) {
         Contact contact = new Contact();
         contacts = getAllContacts();

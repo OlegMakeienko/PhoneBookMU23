@@ -22,6 +22,7 @@ public class Contact {
     public static ContactBuilder builder() {
         return new ContactBuilder();
     }
+
     public String getFirstName() {
         return firstName;
     }
@@ -62,14 +63,13 @@ public class Contact {
         this.userAddress = userAddress;
     }
 
-
     @Override
     public String toString() {
-        return "UserProfile: " +
+        return "\n UserProfile: " +
                 "\n    firstName='" + firstName + '\'' +
                 ", \n    lastName='" + lastName + '\'' +
                 ", \n    age=" + age +
                 ", \n    address='" + userAddress.toString() + '\'' +
-                ", \n    phoneNumbers=" + phoneNumbers;
+                ", \n    phoneNumbers=" + phoneNumbers + "\n";
     }
 }

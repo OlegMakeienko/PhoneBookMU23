@@ -36,7 +36,7 @@ public class AppMain {
                 .firstName("Ulf")
                 .lastName("Makeienko")
                 .age(63)
-                .userAddress("Stockholnsvägen 666, Santa-Fe, 76645")
+                .userAddress("Risselåsvägen 666, Santa-Fe, 76645")
                 .addPhoneNumber("+66-666-123-6666")
                 .build();
 
@@ -47,6 +47,8 @@ public class AppMain {
 
 
         //phoneBook.showContactsWithFirstName("Marie");
-        System.out.println(phoneBook.getContactWithLastName("Makeienko"));
+        //System.out.println(phoneBook.getContactWithLastName("Makeienko"));
+        //phoneBook.showContactsWithAddress("Gatavägen");
+        System.out.println(phoneBook.getContactsWithAddress("Risselåsvägen"));
     }
 }
