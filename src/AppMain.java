@@ -5,6 +5,7 @@ import src.phonebook.PhoneBook;
 
 public class AppMain {
     public static void main(String[] args) {
+
         PhoneBook phoneBook = new PhoneBook();
 
         Contact userProfile1 = Contact.builder()
@@ -52,6 +53,7 @@ public class AppMain {
         //System.out.println(phoneBook.getContactsWithAddress("Risselåsvägen"));
         //phoneBook.showContactsWithAnySuitableInfo("Ri");
         //phoneBook.deleteContact(userProfile2);
+        //phoneBook.updateContact(userProfile1, "Mark");
         phoneBook.showAllContacts();
     }
 }

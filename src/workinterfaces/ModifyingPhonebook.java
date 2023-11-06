@@ -12,11 +12,9 @@ public interface ModifyingPhonebook {
         System.out.println("Contact deleted");
     }
 
-    default void updateContact(Contact contact) {
+    default void updateContact(Contact contact, String somOneInfoWeWillUpdate) {
         System.out.println("Contact updated");
     }
-
-
 
     // default void updateContact(Contact profile) {
           /* if (isAdmin || profiles.contains(profile)) {
@@ -33,8 +31,5 @@ public interface ModifyingPhonebook {
         } else {
             System.out.println("Permission denied. You need to be an admin or the profile owner to delete.");
         }
-    }
-
-     */
-
+    }*/
 }

@@ -42,6 +42,11 @@ public class PhoneBook implements SearchingInPhonebook, ModifyingPhonebook {
     }
 
     @Override
+    public void updateContact(Contact contact, String newFirstName) {
+        contact.setFirstName(newFirstName);
+    }
+
+    @Override
     public List<Contact> getContactsWithAnySuitableInfo(String something) {
         List<Contact> foundContacts = new ArrayList<>();
         contacts = getAllContacts();
