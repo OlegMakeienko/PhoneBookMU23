@@ -2,6 +2,8 @@ package src.workinterfaces;
 
 import src.phonebook.Contact;
 
+import java.util.Scanner;
+
 public interface ModifyingPhonebook {
 
     default void addContact(Contact contact) {
@@ -14,6 +16,10 @@ public interface ModifyingPhonebook {
 
     default void updateContact(Contact contact, String somOneInfoWeWillUpdate) {
         System.out.println("Contact updated");
+    }
+
+    default Contact createContact(Scanner scanner) {
+        return null;
     }
 
     // default void updateContact(Contact profile) {
