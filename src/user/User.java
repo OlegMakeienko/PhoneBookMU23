@@ -9,4 +9,7 @@ public class User {
     public String getType() {
         return type;
     }
+
+    void userLogic(String choice) {
+    }
 }
