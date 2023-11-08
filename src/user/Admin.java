@@ -5,6 +5,6 @@ public class Admin extends User{
         super(TypAvUsers.ADMIN);
     }
     public static boolean authenticateAdmin(String username, String password) {
-        return username.toLowerCase().equals("admin") && (password.toLowerCase().equals("admin"));
+        return username.equalsIgnoreCase("admin") && (password.equalsIgnoreCase("admin"));
     }
 }

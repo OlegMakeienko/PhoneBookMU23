@@ -1,14 +1,10 @@
 package src.phonebook;
 
-import src.user.User;
-import src.workinterfaces.ModifyingPhonebook;
-import src.workinterfaces.SearchingInPhonebook;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class PhoneBook implements SearchingInPhonebook, ModifyingPhonebook {
+public class PhoneBook {
     private List<Contact> contacts;
 
     private List<Contact> getAllContacts() {
@@ -38,7 +34,6 @@ public class PhoneBook implements SearchingInPhonebook, ModifyingPhonebook {
         }
     }
 
-    @Override
     public Contact createContact(Scanner scanner) {
         System.out.println("Write first name:");
         String firstName = scanner.nextLine();
@@ -62,22 +57,18 @@ public class PhoneBook implements SearchingInPhonebook, ModifyingPhonebook {
         return createdContact;
     }
 
-    @Override
     public void deleteContact(Contact contact) {
         contacts.remove(contact);
     }
 
-    @Override
     public void addContact(Contact contact) {
         contacts.add(contact);
     }
 
-    @Override
     public void updateContact(Contact contact, String newFirstName) {
         contact.setFirstName(newFirstName);
     }
 
-    @Override
     public List<Contact> getContactsWithAnySuitableInfo(String something) {
         List<Contact> foundContacts = new ArrayList<>();
         contacts = getAllContacts();
@@ -95,7 +86,6 @@ public class PhoneBook implements SearchingInPhonebook, ModifyingPhonebook {
         return foundContacts;
     }
 
-    @Override
     public void showContactsWithAnySuitableInfo(String something) {
         List<Contact> foundContacts = new ArrayList<>();
         String searchLower = something.toLowerCase();
@@ -121,7 +111,6 @@ public class PhoneBook implements SearchingInPhonebook, ModifyingPhonebook {
         }
     }
 
-    @Override
     public List<Contact> getContactsWithAddress(String street) {
         List<Contact> foundContacts = new ArrayList<>();
         contacts = getAllContacts();
@@ -135,7 +124,6 @@ public class PhoneBook implements SearchingInPhonebook, ModifyingPhonebook {
         return foundContacts;
     }
 
-    @Override
     public void showContactsWithAddress(String street) {
         List<Contact> foundContacts = new ArrayList<>();
         contacts = getAllContacts();
@@ -158,7 +146,6 @@ public class PhoneBook implements SearchingInPhonebook, ModifyingPhonebook {
         }
     }
 
-    @Override
     public Contact getContactWithLastName(String lastName) {
         Contact contact = new Contact();
         contacts = getAllContacts();
@@ -170,7 +157,6 @@ public class PhoneBook implements SearchingInPhonebook, ModifyingPhonebook {
         return contact;
     }
 
-    @Override
     public void showContactWithLastName(String lastName) {
         contacts = getAllContacts();
         for (int i = 0; i < contacts.size(); i++) {
@@ -180,7 +166,6 @@ public class PhoneBook implements SearchingInPhonebook, ModifyingPhonebook {
         }
     }
 
-    @Override
     public List<Contact> getContactsWithFirstName(String firstName) {
         List<Contact> foundContacts = new ArrayList<>();
         contacts = getAllContacts();
@@ -192,7 +177,6 @@ public class PhoneBook implements SearchingInPhonebook, ModifyingPhonebook {
         return foundContacts;
     }
 
-    @Override
     public void showContactsWithFirstName(String firstName) {
         List<Contact> foundContacts = new ArrayList<>();
         contacts = getAllContacts();

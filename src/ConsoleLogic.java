@@ -1,6 +1,5 @@
 package src;
 
-import src.datasourse.PhoneBookDataSource;
 import src.phonebook.Contact;
 import src.phonebook.PhoneBook;
 
@@ -11,34 +10,29 @@ import static src.user.Admin.authenticateAdmin;
 
 public class ConsoleLogic {
 
-    private PhoneBook phoneBook;
     private Scanner scanner;
-
 
     public ConsoleLogic() {
         this.scanner = new Scanner(System.in);
-        this.phoneBook = new PhoneBook();
     }
 
-    public void ConsoleLogic(PhoneBook phoneBook) {
+    public void enter(PhoneBook phoneBook) {
         while (true) {
             System.out.println("You are welcome, write: (1 = Guest, 2 = Admin, q = Exit):");
             String userType = scanner.nextLine();
 
             if (userType.equals("1")) {
                 // Guest
-                if (userType.equals("1")) {
-                    String choice;
-                    System.out.println("You can choose: 1 = Show all contacts, 2 = Search contact");
-                    choice = scanner.nextLine();
-                    if(choice.equals("1")) {
-                        phoneBook.showAllContacts();
-                    } else if(choice.equals("2")) {
-                        System.out.println("Search contact (write something):");
-                        String searchTerm = scanner.nextLine();
-                        List<Contact> searchResults = phoneBook.getContactsWithAnySuitableInfo(searchTerm);
-                        phoneBook.displayContacts(searchResults);
-                    }
+                String choice;
+                System.out.println("You can choose: 1 = Show all contacts, 2 = Search contact");
+                choice = scanner.nextLine();
+                if(choice.equals("1")) {
+                    phoneBook.showAllContacts();
+                } else if(choice.equals("2")) {
+                    System.out.println("Search contact (write something):");
+                    String searchTerm = scanner.nextLine();
+                    List<Contact> searchResults = phoneBook.getContactsWithAnySuitableInfo(searchTerm);
+                    phoneBook.displayContacts(searchResults);
                 }
 
             } else if (userType.equals("2")) {
