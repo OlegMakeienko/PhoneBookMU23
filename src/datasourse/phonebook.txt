@@ -1,0 +1,6 @@
+First Name: Oleg
+Last Name: Makeienko
+Age: 40
+Phone number: +46-7212-92213
+Address: Risselås 80B, Ström, 83335
+

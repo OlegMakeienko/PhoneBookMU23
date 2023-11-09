@@ -7,6 +7,9 @@ import java.io.*;
 
 public class PhoneBookFileHandler {
 
+    private PhoneBookFileHandler() {
+    }
+
     private static final String SERIALIZED_FILE_NAME = "src/datasourse/phonebook.ser";
     private static final String TEXT_FILE_NAME = "src/datasourse/phonebook.txt";
 

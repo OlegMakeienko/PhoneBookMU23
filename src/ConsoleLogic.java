@@ -46,7 +46,7 @@ public class ConsoleLogic {
                 System.out.println("Enter the admin password:");
                 String adminPassword = scanner.nextLine();
 
-                // Here, you can add authentication and verify the admin's username and password
+                // Here, you can add authentication and verify the admins username and password
                 if (!authenticateAdmin(adminUsername, adminPassword)) {
                     System.out.println("Invalid username or password. Please try again.");
                 } else {
@@ -56,43 +56,44 @@ public class ConsoleLogic {
 
                     String adminAction = scanner.nextLine();
 
-                    if (adminAction.equals("1")) {
-                        // Add contact
-                        Contact contact = phoneBook.createContact(scanner);
-                        phoneBook.addContact(contact);
-
-                    } else if (adminAction.equals("2")) {
-                        // Delete contact
-                        System.out.println("Write contacts last name for remove contact:");
-                        String lastNameToRemove = scanner.nextLine();
-                        Contact contactToRemove = phoneBook.getContactWithLastName(lastNameToRemove);
-                        if (contactToRemove != null) {
-                            phoneBook.deleteContact(contactToRemove);
-                            System.out.println("Contact deleted.");
-                        } else {
-                            System.out.println("Contact did not has find.");
+                    switch (adminAction) {
+                        case "1" -> {
+                            // Add contact
+                            Contact contact = phoneBook.createContact(scanner);
+                            phoneBook.addContact(contact);
                         }
-
-                    } else if (adminAction.equals("3")) {
-                        // Update contact
-                        System.out.println("Write contacts last name for update contact:");
-                        String lastNameToUpdate = scanner.nextLine();
-                        Contact contactToUpdate = phoneBook.getContactWithLastName(lastNameToUpdate);
-                        System.out.println(contactToUpdate);
-
-                        if (contactToUpdate != null) {
-                            System.out.println("Write new first name to this contact: ");
-                            String newName = scanner.nextLine();
-                            phoneBook.updateContact(contactToUpdate, newName);
-
-                            //Contact updatedContact = phoneBook.createContact(scanner);
-                            //phoneBook.updateContact(contactToUpdate, updatedContact.getFirstName());
-
-                            System.out.println("Contact has update. \n  Contact with new data is: ");
+                        case "2" -> {
+                            // Delete contact
+                            System.out.println("Write contacts last name for remove contact:");
+                            String lastNameToRemove = scanner.nextLine();
+                            Contact contactToRemove = phoneBook.getContactWithLastName(lastNameToRemove);
+                            if (contactToRemove != null) {
+                                phoneBook.deleteContact(contactToRemove);
+                                System.out.println("Contact deleted.");
+                            } else {
+                                System.out.println("Contact did not has find.");
+                            }
+                        }
+                        case "3" -> {
+                            // Update contact
+                            System.out.println("Write contacts last name for update contact:");
+                            String lastNameToUpdate = scanner.nextLine();
+                            Contact contactToUpdate = phoneBook.getContactWithLastName(lastNameToUpdate);
                             System.out.println(contactToUpdate);
-                        } else {
-                            System.out.println("Contact did not has find.");
-                        }
+                            if (contactToUpdate != null) {
+                                System.out.println("Write new first name to this contact: ");
+                                String newName = scanner.nextLine();
+                                phoneBook.updateContact(contactToUpdate, newName);
+
+                                //Contact updatedContact = phoneBook.createContact(scanner);
+                                //phoneBook.updateContact(contactToUpdate, updatedContact.getFirstName());
+
+                                System.out.println("Contact has update. \n  Contact with new data is: ");
+                                System.out.println(contactToUpdate);
+                            } else {
+                                System.out.println("Contact did not has find.");
+                            }
+                        } default -> System.out.println("Something wrong");
                     }
                 }
             } else if (userType.equalsIgnoreCase("q")) {
