@@ -17,6 +17,10 @@ public class ConsoleLogic {
     }
 
     public void enter(PhoneBook phoneBook) {
+        if (phoneBook == null) {
+            phoneBook = new PhoneBook();
+        }
+
         while (true) {
             System.out.println("You are welcome, write: (1 = Guest, 2 = Admin, q = Exit):");
             String userType = scanner.nextLine();

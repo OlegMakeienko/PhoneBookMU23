@@ -1,13 +1,16 @@
 package src.phonebook;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class PhoneBook {
+public class PhoneBook implements Serializable {
+
+    private static final long serialVersionUID = 1L;
     private List<Contact> contacts;
 
-    private List<Contact> getAllContacts() {
+    public List<Contact> getAllContacts() {
         return contacts;
     }
 
@@ -28,6 +31,7 @@ public class PhoneBook {
             System.out.println();
         }
     }
+
     public void displayContacts(List<Contact> contacts) {
         for (Contact contact : contacts) {
             System.out.println(contact);
